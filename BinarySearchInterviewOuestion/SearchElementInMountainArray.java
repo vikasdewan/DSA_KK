@@ -1,3 +1,8 @@
+//https://leetcode.com/problems/find-in-mountain-array/description/
+//not submitted now as it require some modification related to interface
+//change it later when learned OOP
+
+
 public class SearchElementInMountainArray {
     public static void main(String[] args) {
         
@@ -5,12 +10,13 @@ public class SearchElementInMountainArray {
 
     int search(int[] arr,int target){
         int peak = peakIndexInMountainArray(arr);
-        int firstTry = binarySearch(arr, target, 0, peak);
+        int firstTry = oderAgnosticBS(arr, target, 0, peak);
         if(firstTry !=-1){
             return firstTry;
         }
+
         //try in second half
-        int secondTry = binarySearch(arr, target, peak+1, firstTry)
+        return oderAgnosticBS(arr, target, peak+1, firstTry);
     }
 
     public  int peakIndexInMountainArray(int [] arr){
@@ -36,17 +42,32 @@ public class SearchElementInMountainArray {
     } 
 
 
-    static int binarySearch(int[] arr, int target, int start, int end) {
+    static int oderAgnosticBS(int[] arr, int target, int start, int end) {
+
+        boolean isAsc = arr[start] < arr[end];
 
         while (start <= end) {
             int mid = (start + end) / 2;
-            if (arr[mid] == target) {
 
+             
+            if (arr[mid] == target) {
                 return mid;
-            } else if (target < arr[mid]) {
-                end = mid - 1;
-            } else {
-                start = mid + 1;
+            }
+            
+            if(isAsc){
+                if (target < arr[mid]) {
+                   end = mid - 1;
+               } else {
+                   start = mid + 1;
+               }
+            }
+            else{
+                if(target> arr[mid]){
+                    end = mid-1;
+                }
+                else{
+                    start = mid+1;
+                }
             }
 
         }
