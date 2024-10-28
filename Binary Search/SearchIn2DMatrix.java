@@ -22,10 +22,10 @@ public class SearchIn2DMatrix {
 
     public static void main(String[] args) {
         int[][] arr = {
-                { 10, 20, 30, 40},
-                { 15, 25, 36, 45},
-                { 27, 28, 39, 49},
-                { 33, 34, 38, 50}
+                { 10, 20, 30, 40 },
+                { 15, 25, 36, 45 },
+                { 27, 28, 39, 49 },
+                { 33, 34, 38, 50 }
         };
         int target = 49;
         int[] targetIndex = Searching(arr, target);
