@@ -1,25 +1,38 @@
-//https://leetcode.com/problems/find-in-mountain-array/description/
-//not submitted now as it require some modification related to interface
-//change it later when learned OOP
+//https://leetcode.com/problems/search-in-rotated-sorted-array/description/
 
 
-public class SearchElementInMountainArray {
+public class SearchInRotatedArray {
     public static void main(String[] args) {
         
-    }
-
-    int search(int[] arr,int target){
-        int peak = peakIndexInMountainArray(arr);
-        int firstTry = oderAgnosticBS(arr, target, 0, peak);
-        if(firstTry !=-1){
-            return firstTry;
+        int [] nums = {4,5,6,7,0,1,2};
+        int target = 0;
+        int ans =  search(nums, target);
+        if(ans !=-1){
+            System.out.println(ans);
+        }
+        else{
+            System.out.println("element not found");
         }
 
-        //try in second half
-        return oderAgnosticBS(arr, target, peak+1, arr.length-1);
     }
 
-    public  int peakIndexInMountainArray(int [] arr){
+
+      static int search(int[] nums, int target) {
+           
+        int pivot = peakIndexInMountainArray(nums);
+        int start = 0;
+        int end = nums.length-1;
+
+        int firstTry = binarySearch(nums, target, start, pivot); //one half before pivot
+
+        if(firstTry !=-1){
+        return firstTry;
+        }
+        return  binarySearch(nums, target, pivot+1, end); //other half after pivot
+
+    }
+
+    static  int peakIndexInMountainArray(int [] arr){
         int start = 0;
         int end =  arr.length - 1;
 
@@ -42,12 +55,12 @@ public class SearchElementInMountainArray {
     } 
 
 
-    static int oderAgnosticBS(int[] arr, int target, int start, int end) {
-
+    static int binarySearch(int[] arr,int target ,int start ,int end){
+        
         boolean isAsc = arr[start] < arr[end];
 
         while (start <= end) {
-            int mid = (start + end) / 2;
+            int mid = start + (end - start) / 2;
 
              
             if (arr[mid] == target) {
