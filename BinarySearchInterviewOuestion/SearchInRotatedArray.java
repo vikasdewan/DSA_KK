@@ -19,7 +19,7 @@ public class SearchInRotatedArray {
 
       static int search(int[] nums, int target) {
            
-        int pivot = peakIndexInMountainArray(nums);
+        int pivot = findPivot(nums);
         int start = 0;
         int end = nums.length-1;
 
@@ -32,7 +32,8 @@ public class SearchInRotatedArray {
 
     }
 
-    static  int peakIndexInMountainArray(int [] arr){
+    //not work in duplicated elements in the array
+    static  int findPivot(int [] arr){
         int start = 0;
         int end =  arr.length - 1;
 
