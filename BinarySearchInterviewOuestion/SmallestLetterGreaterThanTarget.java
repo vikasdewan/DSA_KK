@@ -1,5 +1,5 @@
 public class SmallestLetterGreaterThanTarget {
-    
+
     public static char nextGreatestLetter(char[] arr, char target) {
         int start = 0;
         int end = arr.length - 1;
