@@ -27,7 +27,7 @@ public class firstAndLastPositionOfTargetInSortedArray {
 
             else if (target > nums[mid]) {
                 start = mid + 1;
-            } else {    
+            } else {
                 ans = mid;
                 if (findStartIndex) {
                     end = mid - 1;
