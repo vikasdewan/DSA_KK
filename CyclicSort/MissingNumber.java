@@ -11,7 +11,7 @@ public class MissingNumber {
     }
 
       static  public int missingNumber(int[] nums) {
-            int i=0;
+        int i=0;
             while(i<nums.length){
                 int correctIdx = nums[i];
                 if(nums[i]<nums.length && nums[i] != nums[correctIdx]  ){
