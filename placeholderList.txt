@@ -1,0 +1,10 @@
+%s, %S: String
+%c: Character
+%d: Decimal integer
+%f, %F: Floating-point number
+%e, %E: Scientific notation
+%b, %B: Boolean
+%o: Octal integer
+%x, %X: Hexadecimal integer
+%t: Date/time
+%%: Literal %
