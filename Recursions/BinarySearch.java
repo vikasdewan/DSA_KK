@@ -23,10 +23,8 @@ public class BinarySearch {
         else if(arr[mid] > target){
             return BS(arr,left,mid-1,target);
         }
-        else if(arr[mid] < target){
+        
             return BS(arr,mid+1,right,target);
-        }
-
-        return -1;
+     
     }
 }
