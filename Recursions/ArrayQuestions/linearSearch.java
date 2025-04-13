@@ -17,8 +17,15 @@ public class linearSearch {
         }else{
             System.out.println("element found at index : " + search(arr,0,target));
         }
-        searchAll(arr2,0, target);
-        System.out.println(list);
+       
+       System.out.println(searchAll(arr2, 0, target,new ArrayList<>()));
+        
+         
+    }
+
+    private static void searchAll(int[] arr2, int idx, int target, int i) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'searchAll'");
     }
 
     static int search(int[] arr,int ptr,int target){
@@ -32,14 +39,14 @@ public class linearSearch {
     }
 
     //for multiple occernce of the targeted element.
-  static  ArrayList<Integer> list = new ArrayList<>();
-  static void searchAll(int[] arr,int ptr,int target){
-        if(ptr == arr.length){
-            return;
+ 
+  static ArrayList<Integer> searchAll(int[] arr,int idx,int target,ArrayList<Integer> list){
+        if(idx == arr.length){
+            return list;
         }
-        if(arr[ptr] == target ){
-           list.add(ptr);
+        if(arr[idx] == target ){
+           list.add(idx);
         }
-        search(arr, ptr+1, target);
+       return searchAll(arr, idx+1, target,list);
     }
 }
