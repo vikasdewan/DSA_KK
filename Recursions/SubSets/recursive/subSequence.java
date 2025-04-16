@@ -1,6 +1,6 @@
 //if we have "abc" then print "a" , "b" , "c" , "ab" , "bc", "ac", "abc"
 
-package Recursions.SubSets;
+package Recursions.SubSets.recursive;
 
 import java.util.ArrayList;
 
