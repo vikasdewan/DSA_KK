@@ -7,11 +7,12 @@ public class MazeObstacle {
     public static void main(String[] args) {
         boolean[][] maze = { 
         {true, true, true}, 
-        {true, false, true}, 
+        {true, true, true}, 
          {true, true, true} 
         };
-        pathRestrications("", maze, 0, 0);
-       System.out.println(pathRestricationsList("", maze, 0, 0)); 
+        // pathRestrications("", maze, 0, 0);
+    //    System.out.println(pathRestricationsList("", maze, 0, 0)); 
+       allPaths("", maze, 0, 0);
     }
 
     static void pathRestrications(String p,boolean[][] maze, int r, int c) {
@@ -54,6 +55,34 @@ public class MazeObstacle {
 
         return list;
          
+    }
+
+    static void allPaths(String p,boolean[][] maze, int r, int c) {
+
+        if(r==maze.length-1 && c==maze[0].length-1){
+            System.out.println(p);
+            return;
+        }
+        if(!maze[r][c]){
+            return;
+        }
+        
+        maze[r][c] = false; // Mark the cell as visited
+
+        if(c<maze[0].length-1){
+            allPaths(p+ "R",maze,r,c+1);
+        }
+        if(r<maze.length-1){
+            allPaths(p + "D",maze, r + 1, c);
+        }
+        if(r>0){
+            allPaths(p+ "U",maze, r - 1, c);
+        }
+        if(c>0){
+            allPaths(p + "L",maze, r, c - 1);
+        }
+
+        maze[r][c] = true; // Backtrack and unmark the cell       
     }
 
 } 
