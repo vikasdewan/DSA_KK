@@ -29,10 +29,10 @@ public class Maze {
             return;
         }
 
-        if(c>0){
+        if(c>1){
             path(p+ "R",r,c-1);
         }
-        if(r>0){
+        if(r>1){
             path(p + "D", r - 1, c);
         }
 
@@ -48,10 +48,10 @@ public class Maze {
         }
 
         ArrayList<String> list = new ArrayList<>();
-        if(c>0){
+        if(c>1){
           list.addAll(pathList(p+ "R",r,c-1));
         }
-        if(r>0){
+        if(r>1){
             list.addAll(pathList(p+ "D",r-1,c));
         }
 
