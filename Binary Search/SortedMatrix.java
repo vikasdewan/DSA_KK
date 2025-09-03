@@ -22,8 +22,10 @@ public class SortedMatrix {
       if (matrix[row][mid] < target) {
         cStart = mid + 1;
       } else {
-        cEnd = mid - 1;
+        cEnd = mid - 1; 
+
       }
+
 
     }
     return new int[] { -1, -1 };
